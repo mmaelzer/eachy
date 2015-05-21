@@ -1,7 +1,7 @@
 {
   "name": "eachy",
-  "version": "1.0.0",
-  "description": "a tiny (18 lines of code) async each module",
+  "version": "1.0.1",
+  "description": "a tiny (16 lines of code) async each module",
   "main": "eachy.js",
   "scripts": {
     "test": "node test.js"

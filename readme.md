@@ -1,7 +1,7 @@
 eachy
 =====
 
-A tiny (18 lines of code) async each implementation that supports CommonJS, AMD, and VanillaJS.  
+A tiny (16 lines of code) async each implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 270 bytes. 
   
 [![build status](https://secure.travis-ci.org/mmaelzer/eachy.png)](http://travis-ci.org/mmaelzer/eachy)
 
