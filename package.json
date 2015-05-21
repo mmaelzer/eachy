@@ -1,0 +1,28 @@
+{
+  "name": "eachy",
+  "version": "1.0.0",
+  "description": "a tiny (18 lines of code) async each module",
+  "main": "eachy.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmaelzer/eachy"
+  },
+  "keywords": [
+    "async",
+    "async-each",
+    "each",
+    "forEach"
+  ],
+  "author": "Mike Maelzer <mmaelzer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmaelzer/eachy/issues"
+  },
+  "homepage": "https://github.com/mmaelzer/eachy",
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
