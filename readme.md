@@ -1,7 +1,9 @@
 eachy
 =====
 
-A tiny (18 lines of code) async each implementation that supports CommonJS, AMD, and VanillaJS.
+A tiny (18 lines of code) async each implementation that supports CommonJS, AMD, and VanillaJS.  
+  
+[![build status](https://secure.travis-ci.org/mmaelzer/eachy.png)](http://travis-ci.org/mmaelzer/eachy)
 
 Install
 -------
