@@ -2,7 +2,7 @@ var each = require('./');
 var test = require('tape');
 
 test('eachy', function(t) {
-  t.plan(6);
+  t.plan(7);
   
   var result = [];
   each([1,2,3], function(n, done) {
@@ -48,4 +48,10 @@ test('eachy', function(t) {
 
   // Don't throw if no callback is provided
   each([1,2,3], function(n, done) { done(); });
+
+  each([1,2,3], function(n, done) {
+    done(null, n * 2);
+  }, function(err, doubles) {
+    t.deepEqual([2,4,6], doubles, 'Eachy properly returns data provided to the callbacks and respects the item order of the initial array');
+  });
 });

@@ -1,17 +1,19 @@
 eachy
 =====
 
-A tiny (16 lines of code) serial async each implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 270 bytes. 
+A tiny (19 lines of code) serial async each implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 303 bytes. 
   
 [![build status](https://secure.travis-ci.org/mmaelzer/eachy.png)](http://travis-ci.org/mmaelzer/eachy)
 
 Install
 -------
 
+#### npm
 ```
 npm install eachy
 ```
 
+#### bower
 ```
 bower install eachy
 ```
@@ -19,12 +21,12 @@ bower install eachy
 Usage
 -----
 
-### asyncEach(array, iterator, callback)
+### seriesEach(array, iterator, callback)
 
 #### Arguments
 * `array` - An array to iterate over
-* `iterator(item, callback, index)` - A function called for each `item` in the `array`. The `callback(err)` takes a single, optional argument, an error. The `index` value is index of the item in the array.
-* `callback(err)` - The callback that is called when all `iterator` functions are finished or an error occurs.
+* `iterator(item, callback, index)` - A function called for each `item` in the `array`. The `callback(err, value)` optionally takes an error or data. Data is collected and provided when all iterator functions have finished. The `index` value is the index of the item in the array.
+* `callback(err, values)` - The callback that is called when all `iterator` functions are finished or an error occurs. The `values` argument is an array of values collected from iterator functions. The index of the value in values maps to the index of the item provided to the iterator function.
 
 Examples
 --------
@@ -32,8 +34,8 @@ Examples
 ```html
 <script src="/js/eachy.js"></script>
 <script>
-  // asyncEach is a global bound to the window object now
-  asyncEach(['hi', 'i love', 'alerts'], function(word, done) {
+  // seriesEach is a global bound to the window object now
+  seriesEach(['hi', 'i love', 'alerts'], function(word, done) {
     alert(word);
     done();
   });
@@ -42,16 +44,13 @@ Examples
 
 #### Node.js
 ```javascript
-var asyncEach = require('eachy');
+var seriesEach = require('eachy');
 var fs = require('fs');
 
-asyncEach(['robots.txt', 'todo.txt'], function(file, done) {
-  fs.readFile(file, function(err, data) {
-    if (err) return done(err);
-    console.log(data);
-    done();
+seriesEach(['robots.txt', 'todo.txt'], fs.readFile, function(err, files) {
+  files.forEach(function(file) {
+    console.log(file);
   });
-}, function(err) {
   console.log('You should have all the information you need now.');
 });
 ```
