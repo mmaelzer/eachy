@@ -1,7 +1,7 @@
 eachy
 =====
 
-A tiny (19 lines of code) serial async each implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 303 bytes. 
+A tiny (19 lines of code) serial async each/map implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 303 bytes. 
   
 [![build status](https://secure.travis-ci.org/mmaelzer/eachy.png)](http://travis-ci.org/mmaelzer/eachy)
 

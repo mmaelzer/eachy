@@ -14,6 +14,6 @@
   } else if (typeof module !== 'undefined' && module.exports) {
     module.exports = eachy;
   } else {
-    global.seriesEach= eachy;
+    global.seriesEach = eachy;
   }
 })(this);

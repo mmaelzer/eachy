@@ -1,12 +1,12 @@
 {
   "name": "eachy",
   "main": "eachy.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/mmaelzer/eachy",
   "authors": [
     "Mike Maelzer <mmaelzer@gmail.com>"
   ],
-  "description": "A tiny (19 lines of code) async each implementation that supports CommonJS, AMD, and VanillaJS.",
+  "description": "A tiny (19 lines of code) serial async each/map implementation that supports CommonJS, AMD, and VanillaJS.",
   "moduleType": [
     "amd",
     "globals",
@@ -18,7 +18,11 @@
     "asyncEach",
     "each-async",
     "async-each",
-    "forEach"
+    "forEach",
+    "map",
+    "series",
+    "serial",
+    "async-map"
   ],
   "license": "MIT",
   "ignore": [
