@@ -4,6 +4,7 @@ eachy
 A tiny (19 lines of code) serial async each/map implementation that supports CommonJS, AMD, and VanillaJS. The minified file `eachy.min.js` is just 303 bytes. 
   
 [![build status](https://secure.travis-ci.org/mmaelzer/eachy.png)](http://travis-ci.org/mmaelzer/eachy)
+[![Coverage Status](https://coveralls.io/repos/mmaelzer/eachy/badge.svg?branch=master&service=github)](https://coveralls.io/github/mmaelzer/eachy?branch=master)
 
 Install
 -------
