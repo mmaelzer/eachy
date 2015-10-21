@@ -1,10 +1,11 @@
 {
   "name": "eachy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "a tiny (19 lines of code) serial async each/map module",
   "main": "eachy.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node_modules/.bin/nodeunit test.js",
+    "coveralls": "node_modules/.bin/jscoverage eachy.js && USE_COVERAGE=1 node_modules/.bin/nodeunit --reporter=lcov test.js | node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
   },
   "homepage": "https://github.com/mmaelzer/eachy",
   "devDependencies": {
-    "tape": "^4.0.0"
+    "coveralls": "^2.11.4",
+    "jscoverage": "^0.6.0",
+    "nodeunit": "^0.9.1"
   }
 }

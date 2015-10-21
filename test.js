@@ -1,18 +1,23 @@
-var each = require('./');
-var test = require('tape');
+var each = (function() {
+  return process.env.USE_COVERAGE
+    ? require('./eachy-cov')
+    : require('./eachy');
+})();
 
-test('eachy', function(t) {
-  t.plan(7);
-  
+exports.eachyBaseTest = function(t) {
   var result = [];
   each([1,2,3], function(n, done) {
     result.push(n * 2);
     done();
   }, function(err) {
-    t.notOk(err, 'If no error is generated, no value passed to the final callback');
+    t.notEqual(Boolean(err), true, 'If no error is generated, no value passed to the final callback');
     t.deepEqual([2,4,6], result, 'Iterator function is called');
   });
-  
+
+  t.done();
+};
+ 
+exports.eachyAsyncTest = function(t) {
   var result2 = [];
   each([4,8,16], function(n, done) {
     process.nextTick(function() {
@@ -21,8 +26,11 @@ test('eachy', function(t) {
     });
   }, function(err) {
     t.deepEqual([2,4,8], result2, 'Eachy handles async functions properly');
+    t.done();
   });
+};
 
+exports.eachyAsyncErrorTest = function(t) {
   var result3 = [];
   each([32, 64, 128], function(n, done) {
     process.nextTick(function() {
@@ -37,6 +45,10 @@ test('eachy', function(t) {
     t.ok(err, 'Errors generated are provided to the final callback');
   });
 
+  t.done();
+};
+
+exports.eachyIndexTest = function(t) {
   var indexes = [];
   var items = [0,1,2];
   each(items, function(n, done, i) {
@@ -54,4 +66,6 @@ test('eachy', function(t) {
   }, function(err, doubles) {
     t.deepEqual([2,4,6], doubles, 'Eachy properly returns data provided to the callbacks and respects the item order of the initial array');
   });
-});
+
+  t.done();
+};
